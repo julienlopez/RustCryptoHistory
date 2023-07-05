@@ -6,13 +6,13 @@ pub enum Error {
 }
 
 impl From<std::string::FromUtf8Error> for Error {
-    fn from(err : std::string::FromUtf8Error) -> Error {
+    fn from(err: std::string::FromUtf8Error) -> Error {
         Error::FromUtf8(err)
     }
 }
 
 impl From<std::num::ParseFloatError> for Error {
-    fn from(err : std::num::ParseFloatError) -> Error {
+    fn from(err: std::num::ParseFloatError) -> Error {
         Error::FromFloat(err)
     }
 }
