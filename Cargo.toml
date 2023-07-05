@@ -1,5 +1,5 @@
 [package]
-name = "RustCryptoHistory"
+name = "rust_crypto_history"
 version = "0.1.0"
 edition = "2021"
 
