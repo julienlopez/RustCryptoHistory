@@ -1,6 +1,5 @@
 #[derive(Debug)]
 pub enum Error {
-    Unknown,
     Message(String),
     FromUtf8(std::string::FromUtf8Error),
     FromFloat(std::num::ParseFloatError),

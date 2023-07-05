@@ -66,7 +66,6 @@ impl Database {
 
     // Result<void> addTransaction(const Transaction& transaction);
 
-    // Result<std::vector<Transaction>> transactions(const std::string& currency);
     pub fn transactions(&self, currency: &str) -> Result<Vec<Transaction>, Error>{
         let mut entry = self.handle.first();
         // Iterate records
