@@ -100,10 +100,14 @@ impl Database {
         Err(Error::Message("Invalid currency".to_string()))
     }
 
-    // pub fn all_transactions(&self) -> Result<Vec<Transaction>, Error> {
-    //     // self.currencies().iter().map(|s| self.transactions(s)).into_iter().collect()
-    //     Err(Error::Unknown)
-    // }
+    pub fn all_transactions(&self) -> Result<Vec<Transaction>, Error> {
+        let res: Result<Vec<Vec<Transaction>>, Error> = self
+            .currencies()
+            .into_iter()
+            .map(|s| self.transactions(&s))
+            .collect();
+        res.map(|transations| transations.into_iter().flatten().collect())
+    }
 }
 
 #[cfg(test)]
