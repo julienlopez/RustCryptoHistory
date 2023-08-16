@@ -1,5 +1,5 @@
 #[derive(Debug, PartialEq)]
-struct Detail {
+pub struct Details {
     pub amount: f64,
     pub total_value: f64,
     pub price: f64,
@@ -7,10 +7,10 @@ struct Detail {
 }
 
 #[derive(Debug, PartialEq)]
-struct Trade {
-    currency: String,
-    opening_details: Detail,
-    closing_details: Option<Detail>,
+pub struct Trade {
+    pub currency: String,
+    pub opening_details: Details,
+    pub closing_details: Option<Details>,
 }
 
 impl Trade {
@@ -37,7 +37,7 @@ mod tests {
     fn test_open_trade() {
         let trade = Trade {
             currency: "BTC".to_string(),
-            opening_details: Detail {
+            opening_details: Details {
                 amount: 0.5,
                 total_value: 30.,
                 price: 60.0,
@@ -54,13 +54,13 @@ mod tests {
     fn test_closed_trade() {
         let trade = Trade {
             currency: "BTC".to_string(),
-            opening_details: Detail {
+            opening_details: Details {
                 amount: 0.5,
                 total_value: 30.,
                 price: 60.0,
                 timestamp: "2023-01-01T08:00:00".to_string(),
             },
-            closing_details: Some(Detail {
+            closing_details: Some(Details {
                 amount: 0.5,
                 total_value: 40.,
                 price: 80.0,
